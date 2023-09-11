@@ -56,7 +56,7 @@ Omschrijf per mechanic welke game design keuzes je hebt gemaakt en waarom je dit
 
 *  **in mijn game kan je zelf het pad voor de enemys tekenen** 
 
-*door het pad langer of korter os meer gebogen te maken wordt het moeilijker of makkelijker*
+*door het pad langer of korter os meer gebogen te maken wordt het moeilijker of makkelijker je kan alleen tussen 2 bases tekenen*
 
 ## Product 7: Class Diagram voor volledige codebase 
 
