@@ -5,14 +5,17 @@ using UnityEngine;
 public class draw_path : MonoBehaviour
 {
     private LineRenderer path;
+    [SerializeField] private path waypoint;
     private Vector3 previouspos;
 
     [SerializeField] private Transform start;
     [SerializeField] private Transform finish;
 
+    public string starttag = "enemyBase";
     public bool canStart;
     public bool drawing;
-    public bool canFinish;
+    public bool Stop;
+    public bool Done;
 
     [SerializeField] private float minDist = 1f;
     void Start()
@@ -23,28 +26,39 @@ public class draw_path : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0) && canStart)
+        if (!Done)
         {
-            drawing = true;
-        }
-        if (drawing)
-        {
-            Vector3 Currentpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Currentpos.z = 0;
-
-            if (Vector3.Distance(Currentpos, previouspos) > minDist)
+            if (Input.GetMouseButtonDown(0) && canStart)
             {
-                if (previouspos == transform.position)
+                drawing = true;
+            }
+            if (drawing)
+            {
+                Vector3 Currentpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Currentpos.z = 0;
+
+                if (Vector3.Distance(Currentpos, previouspos) > minDist)
                 {
-                    path.SetPosition(0, Currentpos);
+                    if (previouspos == transform.position)
+                    {
+                        path.SetPosition(0, Currentpos);
+                    }
+                    else
+                    {
+                        path.positionCount++;
+                        path.SetPosition(path.positionCount - 1, Currentpos);
+                        waypoint.waypoints.Add(Currentpos);
+                    }
+                    previouspos = Currentpos;
                 }
-                else
-                {
-                    path.positionCount++;
-                    path.SetPosition(path.positionCount - 1, Currentpos);
-                }
-                previouspos = Currentpos;
+            }
+            if (Stop)
+            {
+                path.positionCount++;
+                Vector3 currentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                currentPos.z = 0;
+                path.SetPosition(path.positionCount - 1, currentPos);
+                Done = true;
             }
         }
     }

@@ -58,6 +58,10 @@ Omschrijf per mechanic welke game design keuzes je hebt gemaakt en waarom je dit
 
 *door het pad langer of korter os meer gebogen te maken wordt het moeilijker of makkelijker je kan alleen tussen 2 bases tekenen*
 
+*  **de enemys kunnen over het pad lopen wat jij zelf hebt getekend**
+
+*nadat je het pad hebt getekend lopen de enemys over jouw pad naar jouw base vanaf hun base*
+
 ## Product 7: Class Diagram voor volledige codebase 
 
 Je brengt je volledige codebase in kaart met behulp van een class diagram. Binnen de classes hoeven geen private members te worden weergegeven. Wel alle public members (fields en methods). Ook geef je indien relevant de relaties tussen je classes weer. Je class diagram plaats je in je readme op github. Evt mag je dit doen m.b.v de [“Mermaid”](https://mermaid.js.org/syntax/classDiagram.html) tool.
