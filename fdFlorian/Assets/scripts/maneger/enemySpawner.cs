@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class enemySpawner : MonoBehaviour
 {
+    public int wave = 1;
+    public int dificulty;
+    public int currentEnemy;
+    [SerializeField] private int maxEnemy;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private draw_path done;
 
@@ -19,6 +23,10 @@ public class enemySpawner : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (done.Done)
             {
+                if (currentEnemy < maxEnemy)
+                {
+
+                }
                 Instantiate(enemyPrefab);
             }
         }

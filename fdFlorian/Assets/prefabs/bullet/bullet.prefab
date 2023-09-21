@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4591438050715740177
+--- !u!1 &7030161764895641686
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1968596490153299433}
-  - component: {fileID: 1902943982400299268}
-  - component: {fileID: 6326181020684162891}
-  - component: {fileID: -7845326663887016806}
-  - component: {fileID: -6095632646349352439}
+  - component: {fileID: 7030161764895641684}
+  - component: {fileID: 7030161764895641687}
+  - component: {fileID: 7506170782404635320}
+  - component: {fileID: 8161766459560010907}
   m_Layer: 0
-  m_Name: enemy
-  m_TagString: enemy
+  m_Name: bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1968596490153299433
+--- !u!4 &7030161764895641684
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591438050715740177}
+  m_GameObject: {fileID: 7030161764895641686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.1572125, y: -0.009761132, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1902943982400299268
+--- !u!212 &7030161764895641687
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591438050715740177}
+  m_GameObject: {fileID: 7030161764895641686}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3301887, g: 0.10404057, b: 0.2681625, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,30 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6326181020684162891
+--- !u!114 &7506170782404635320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591438050715740177}
+  m_GameObject: {fileID: 7030161764895641686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8356358ef509a0c478f343106e776c6e, type: 3}
+  m_Script: {fileID: 11500000, guid: e393030e3bb9cac4cb5708d2fbf144d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
-  maneger: {fileID: 650545247735069006, guid: d3e6f8c0e0685994aa30387d282cbcd3, type: 3}
-  speed: 5
-  nextWaypointIndex: 0
-  reachedWaypointClearance: 0.25
---- !u!58 &-7845326663887016806
+  target: {fileID: 0}
+  speed: 0
+--- !u!58 &8161766459560010907
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591438050715740177}
+  m_GameObject: {fileID: 7030161764895641686}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -120,24 +116,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!50 &-6095632646349352439
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591438050715740177}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: -0.08
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 3
