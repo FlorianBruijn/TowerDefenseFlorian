@@ -7,6 +7,7 @@ public class shoot : MonoBehaviour
     public float firerate;
     [SerializeField] private bool reloading;
     [SerializeField] private float bulletSpeed;
+    public float damage;
     public GameObject bullet;
     public void shootProjectile(Transform target)
     {
@@ -16,6 +17,8 @@ public class shoot : MonoBehaviour
             bullet script = Bullet.GetComponent<bullet>();
             script.target = target;
             script.speed = bulletSpeed;
+            script.damage = damage;
+            Bullet.transform.position = transform.position;
             reloading = true;
             StartCoroutine(reload());
         }

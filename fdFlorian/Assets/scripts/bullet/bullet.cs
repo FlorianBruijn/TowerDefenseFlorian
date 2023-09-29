@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
     public Transform target;
     public float speed;
+    public float damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +32,5 @@ public class bullet : MonoBehaviour
         Vector2 direction = target.position - transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
         transform.position += (vel * speed * Time.deltaTime);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "enemy")
-        {
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-        }
     }
 }
