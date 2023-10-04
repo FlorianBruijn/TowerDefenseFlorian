@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class draw_path : MonoBehaviour
 {
+    [SerializeField] private GameObject playerBase;
     private LineRenderer path;
     [SerializeField] private path waypoint;
     private Vector3 previouspos;
@@ -42,22 +43,27 @@ public class draw_path : MonoBehaviour
                     if (previouspos == transform.position)
                     {
                         path.SetPosition(0, Currentpos);
+                        waypoint.waypoints.Add(Currentpos);
+                        waypoint.colPoints.Add(Currentpos);
                     }
                     else
                     {
                         path.positionCount++;
                         path.SetPosition(path.positionCount - 1, Currentpos);
                         waypoint.waypoints.Add(Currentpos);
+                        waypoint.colPoints.Add(Currentpos);
                     }
                     previouspos = Currentpos;
                 }
             }
             if (Stop)
             {
+                waypoint.waypoints.Add(playerBase.transform.position);
                 path.positionCount++;
                 Vector3 currentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 currentPos.z = 0;
                 path.SetPosition(path.positionCount - 1, currentPos);
+                waypoint.setCol();
                 Done = true;
             }
         }
