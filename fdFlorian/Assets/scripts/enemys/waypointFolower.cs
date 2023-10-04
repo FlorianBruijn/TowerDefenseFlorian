@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class waypointFolower : MonoBehaviour
-{
+{ 
     [SerializeField] private Vector3[] waypoints;
     [SerializeField] private path maneger;
     [SerializeField] private float speed = 1;
