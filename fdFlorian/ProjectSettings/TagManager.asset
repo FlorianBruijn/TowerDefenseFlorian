@@ -7,6 +7,8 @@ TagManager:
   - enemyBase
   - enemy
   - bullet
+  - path
+  - tower
   layers:
   - Default
   - TransparentFX

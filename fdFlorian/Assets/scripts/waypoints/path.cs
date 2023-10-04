@@ -5,13 +5,12 @@ using UnityEngine;
 public class path : MonoBehaviour
 {
     public List<Vector3> waypoints = new List<Vector3>();
-    void Start()
-    {
-        
-    }
 
-    void Update()
-    {
-        
+    [SerializeField] private EdgeCollider2D col;
+
+    public List<Vector2> colPoints = new List<Vector2>();
+    public void setCol() 
+    { 
+        col.points = colPoints.ToArray();
     }
 }

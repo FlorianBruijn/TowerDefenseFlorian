@@ -7,6 +7,7 @@ public class aim : MonoBehaviour
     [SerializeField] private string enemyTag;
     [SerializeField] private shoot shoot;
     public float range;
+    [SerializeField] private placeTower place;
     void Start()
     {
         
@@ -14,17 +15,20 @@ public class aim : MonoBehaviour
 
     void Update()
     {
-        GameObject[] targets = GameObject.FindGameObjectsWithTag(enemyTag);
-        if (targets.Length == 0) 
+        if (place.towerPlaced)
         {
-            return; 
-        }
-        for (int i = 0; i < targets.Length; i++)
-        {
-            if (Vector3.Distance(targets[i].transform.position,transform.position) < range)
+            GameObject[] targets = GameObject.FindGameObjectsWithTag(enemyTag);
+            if (targets.Length == 0)
             {
-                lookAtTarget(targets[i].transform);
-                i = targets.Length;
+                return;
+            }
+            for (int i = 0; i < targets.Length; i++)
+            {
+                if (Vector3.Distance(targets[i].transform.position, transform.position) < range)
+                {
+                    lookAtTarget(targets[i].transform);
+                    i = targets.Length;
+                }
             }
         }
     }
