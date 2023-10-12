@@ -5,17 +5,24 @@ using UnityEngine;
 public class spawnTower : MonoBehaviour
 {
     [SerializeField] private GameObject tower;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    [SerializeField] private GameObject lastPlaced;
+    
     public void onButton()
     {
-        Instantiate(tower);
+        bool canSpawn = true;
+        if (lastPlaced != null)
+        {
+            placeTower place = lastPlaced.GetComponent<placeTower>();
+            if (!place.towerPlaced)
+            {
+                canSpawn = false;
+            }
+        }
+
+        Debug.Log(canSpawn);
+        if(canSpawn)
+        {
+            lastPlaced = Instantiate(tower);
+        }
     }
 }

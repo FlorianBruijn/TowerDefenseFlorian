@@ -8,8 +8,6 @@ public class mainMenu : MonoBehaviour
 {
     public void quit()
     {
-        EditorApplication.isPlaying = false;
-
         Application.Quit();
     }
 

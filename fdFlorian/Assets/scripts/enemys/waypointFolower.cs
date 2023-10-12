@@ -17,7 +17,6 @@ public class waypointFolower : MonoBehaviour
     void Start()
     {
         waypoints = maneger.waypoints.ToArray();
-        Debug.Log(maneger.waypoints.Count);
         transform.position = waypoints[0];
     }
 
