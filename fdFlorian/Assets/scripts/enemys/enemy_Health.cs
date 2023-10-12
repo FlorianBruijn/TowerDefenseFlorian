@@ -27,7 +27,14 @@ public class enemy_Health : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log(waypoints.waypoints.Count);
-            money.addMoney(waypoints.waypoints.Count / 10);
+            if((-(Mathf.Sqrt(waypoints.waypoints.Count)-10)) > 1)
+            {
+                money.addMoney(Mathf.Round((-(Mathf.Sqrt(waypoints.waypoints.Count)-10))));
+            }
+            else
+            {
+                money.addMoney(1);
+            }
             Destroy(gameObject);
         }
     }
